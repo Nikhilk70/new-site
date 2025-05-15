@@ -415,7 +415,6 @@ table{
     -webkit-transition: all .3s;
     transition: all .3s;
     overflow: hidden;
-    box-shadow: 5px 5px 5px -5px rgba(0,0,0,.2);
     border: solid #fff 10px;
 }
 
