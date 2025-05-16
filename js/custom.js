@@ -42,3 +42,4 @@ function selectSize(btn) {
     // Set selected size to hidden input (useful for forms)
     document.getElementById('selectedSize').value = btn.textContent;
   }
+

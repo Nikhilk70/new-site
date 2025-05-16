@@ -13,6 +13,36 @@
       <link href="css/font-awesome.min.css" rel="stylesheet" />
       <link href="css/style.css" rel="stylesheet" />
       <link href="css/responsive.css" rel="stylesheet" />
+      <style>
+        .tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+            border-radius: 10px;
+            position: relative;
+        }
+        .tabs button {
+            width: 33.3333%;
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .tabs .active {
+            background: white;
+            height: calc(100% - 10px);
+            width: calc(33.3333% - 10px);
+            position: absolute;
+            top: 5px;
+            left: 0;
+            transform: translate(5px);
+            border-radius: inherit;
+            box-shadow: 0 2px 2px #ccc;
+            transition: all 200ms;
+        }
+      </style>
    </head>
    <body>
         <header class="header_section">
@@ -116,6 +146,12 @@
                      Our <span>products</span>
                   </h2>
                </div>
+               <div class="tabs">
+                <div class="active"></div>
+                <button>Tab 1</button>
+                <button>Tab 2</button>
+                <button>Tab 3</button>
+            </div>
                <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-4">
                    <div class="box">
@@ -325,6 +361,29 @@
         </div>
     </div>
     </footer>
+    <script>
+        const btns = document.querySelectorAll(".tabs button");
+        const active = document.querySelector(".active");
+        
+        // Initialize - make sure all dimensions are correct from the start
+        const tabWidth = 100 / btns.length;
+        active.style.width = `calc(${tabWidth}% - 5px)`;
+        
+        // Set up click handlers for each button
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                // Calculate position - need to account for the padding
+                const containerWidth = document.querySelector('.tabs').offsetWidth - 10; // subtract padding
+                const buttonWidth = containerWidth / btns.length;
+                const offsetLeft = 5 + (buttonWidth * i);
+                
+                // Set the position directly in pixels rather than percentages
+                active.style.left = offsetLeft + 'px';
+                
+                console.log(`Tab ${i+1} clicked. Moving to: ${offsetLeft}px`);
+            }
+        }
+    </script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
