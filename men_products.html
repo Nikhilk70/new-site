@@ -14,34 +14,109 @@
       <link href="css/style.css" rel="stylesheet" />
       <link href="css/responsive.css" rel="stylesheet" />
       <style>
-        .tabs {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        /* Tabs Container */
+        .tabs-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Tab Navigation */
+        .tabs-nav {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #eee;
-            border-radius: 10px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
             position: relative;
         }
-        .tabs button {
-            width: 33.3333%;
-            background-color: transparent;
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
             border: none;
-            padding: 10px;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6c757d;
             cursor: pointer;
-            z-index: 2;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
-        .tabs .active {
-            background: white;
-            height: calc(100% - 10px);
-            width: calc(33.3333% - 10px);
+
+        .tab-button:hover {
+            color: #f7444e;
+        }
+
+        /* Active Tab Indicator */
+        .tab-indicator {
             position: absolute;
-            top: 5px;
-            left: 0;
-            transform: translate(5px);
-            border-radius: inherit;
-            box-shadow: 0 2px 2px #ccc;
-            transition: all 200ms;
+            bottom: 0;
+            height: 3px;
+            background-color: #f7444e;
+            transition: transform 0.3s ease;
+            border-radius: 3px 3px 0 0;
         }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Additional Styling for Tab Content */
+        .tab-content h2 {
+            margin-bottom: 15px;
+            color: #343a40;
+        }
+
+        .tab-content p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f7444e;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #f7444e;
+        }
+        
       </style>
    </head>
    <body>
@@ -146,12 +221,17 @@
                      Our <span>products</span>
                   </h2>
                </div>
-               <div class="tabs">
-                <div class="active"></div>
-                <button>Tab 1</button>
-                <button>Tab 2</button>
-                <button>Tab 3</button>
+   <div class="container">
+        
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-button" data-tab="tab1">Shirt</button>
+                <button class="tab-button" data-tab="tab2">Pants</button>
+                <button class="tab-button" data-tab="tab3">Accessories</button>
+                <div class="tab-indicator"></div>
             </div>
+            
+            <div id="tab1" class="tab-content active">
                <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-4">
                    <div class="box">
@@ -306,6 +386,249 @@
                </div>
             </div>
       </div>
+            </div>
+            
+            <div id="tab2" class="tab-content">
+               <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add to Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/men_pant_2.webp" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Men's Shirt
+                         </h5>
+                         <h6>
+                            $75
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add To Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/men_pant_3.jpg" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Men's Shirt
+                         </h5>
+                         <h6>
+                            $80
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add To Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/men_pant_4.webp" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Women's Dress
+                         </h5>
+                         <h6>
+                            $68
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+          </div>
+
+            </div>
+            
+            <div id="tab3" class="tab-content">
+                               <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add to Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/shoe_3.webp" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Men's Shirt
+                         </h5>
+                         <h6>
+                            $75
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add To Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/shoe_2.avif" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Men's Shirt
+                         </h5>
+                         <h6>
+                            $80
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add To Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/watch_2.webp" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Women's Dress
+                         </h5>
+                         <h6>
+                            $68
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+          </div>
+               <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add to Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/shoe_1.avif" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Men's Shirt
+                         </h5>
+                         <h6>
+                            $75
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add To Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/shoe_2.avif" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Men's Shirt
+                         </h5>
+                         <h6>
+                            $80
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                   <div class="box">
+                      <div class="option_container">
+                         <div class="options">
+                            <a href="cart.html" class="option1">
+                            Add To Cart
+                            </a>
+                            <a href="product_details.html" class="option2">
+                            Buy Now
+                            </a>
+                         </div>
+                      </div>
+                      <div class="img-box">
+                         <img src="images/watch_1.webp" alt="">
+                      </div>
+                      <div class="detail-box">
+                         <h5>
+                            Women's Dress
+                         </h5>
+                         <h6>
+                            $68
+                         </h6>
+                      </div>
+                   </div>
+                </div>
+          </div>
+
+            </div>
+        </div>
+    </div>
+
          
                <br>
             </div>
@@ -362,27 +685,54 @@
     </div>
     </footer>
     <script>
-        const btns = document.querySelectorAll(".tabs button");
-        const active = document.querySelector(".active");
-        
-        // Initialize - make sure all dimensions are correct from the start
-        const tabWidth = 100 / btns.length;
-        active.style.width = `calc(${tabWidth}% - 5px)`;
-        
-        // Set up click handlers for each button
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].onclick = function() {
-                // Calculate position - need to account for the padding
-                const containerWidth = document.querySelector('.tabs').offsetWidth - 10; // subtract padding
-                const buttonWidth = containerWidth / btns.length;
-                const offsetLeft = 5 + (buttonWidth * i);
-                
-                // Set the position directly in pixels rather than percentages
-                active.style.left = offsetLeft + 'px';
-                
-                console.log(`Tab ${i+1} clicked. Moving to: ${offsetLeft}px`);
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabIndicator = document.querySelector('.tab-indicator');
+            
+            function initializeIndicator() {
+                if (tabButtons.length > 0) {
+                    const activeTab = document.querySelector('.tab-button');
+                    const tabWidth = activeTab.offsetWidth;
+                    
+                    tabIndicator.style.width = `${tabWidth}px`;
+                    tabIndicator.style.transform = 'translateX(0)';
+                    
+                    activeTab.style.color = '#f7444e';
+                    document.getElementById('tab1').classList.add('active');
+                }
             }
-        }
+            
+            function handleTabClick(e) {
+                const clickedTab = e.currentTarget;
+                const tabId = clickedTab.getAttribute('data-tab');
+                
+                tabButtons.forEach(button => {
+                    button.style.color = '#6c757d';
+                });
+                
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                clickedTab.style.color = '#f7444e';
+                document.getElementById(tabId).classList.add('active');
+                
+                const tabWidth = clickedTab.offsetWidth;
+                const tabPosition = clickedTab.offsetLeft;
+                
+                tabIndicator.style.width = `${tabWidth}px`;
+                tabIndicator.style.transform = `translateX(${tabPosition}px)`;
+            }
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', handleTabClick);
+            });
+            
+            initializeIndicator();
+            
+            window.addEventListener('resize', initializeIndicator);
+        });
     </script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
